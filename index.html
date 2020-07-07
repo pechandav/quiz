@@ -1,7 +1,35 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <title>Javascript Quiz</title>
+
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="reset.css">
+
 </head>
+
+<body>
 <div id="start"> Start Quiz! </div>
 <div id="quiz" style= "display: none;">
+    <div id="question"> <p>Question</p> </div>
+    <div id="choices">
+
+        <div class="choice" id="A" onclick="checkAnswer('A')"></div>
+
+        <div class="choice" id="B" onclick="checkAnswer('B')"></div>
+
+        <div class="choice" id="C" onclick="checkAnswer('C')"></div>
+        
+    <div id="timer">
+        <div id="counter">
+                    <div id="choices">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="questions.js"></script>
+</body>
+</html>
