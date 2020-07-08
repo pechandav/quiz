@@ -1,10 +1,16 @@
 body {
     font-size: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 #start {
+    border: salmon 2px solid;
+    padding: 10px 40px 40px 40px;
     color: purple;
     font-size: xx-large;
     font-weight: 700;
+    width: 20%;
+    background-color: salmon;
 }
+#start:hover {background-color: skyblue;
+border: skyblue;}
