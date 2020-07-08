@@ -79,5 +79,23 @@ function renderCounter(){
         }
         }
     }
+
+    //check answer
+    function checkAnswer (answer) {
+        if(answer==questions[runningQuestion].correct){score++;
+        answerIsCorrect();
+    }
+    else{answerIsWrong();
+    }
+    count= 0;
+    if(runningQuestion < lastQuestion){
+        runningQuestion++;
+        renderQuestion();
+    }
+    else{
+        clearInterval(TIMER);
+        scoreRender();
+    }
+    }
     
 
