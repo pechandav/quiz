@@ -1,15 +1,32 @@
-const start = document.getElementById("start");
-const quiz = document.getElementById("quiz");
-const question = document.getElementById("question");
-const choiceA= document.getElementById("A");
-const choiceB= document.getElementById("B");
-const choiceC= document.getElementById("C");
-const counter= document.getElementById("counter");
-const scoreDiv= document.getElementById("scoreContainer");
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
+
+	function showQuestions(questions, quizContainer){
+        var output=[];
+        var answers;
+        for(var i=0; i<questions.length; i++){
+            answers=[];
+            for(letter in questions[i].answers){
+                answers.push("<label>" +)
+            }
+        }
+	}
+
+	function showResults(quizContainer, resultsContainer){
+		// code will go here
+	}
+
+	// show the questions
+	showQuestions(questions, quizContainer);
+
+	// when user clicks submit, show results
+	submitButton.onclick = function(){
+		showResults(quizContainer, resultsContainer);
+	}
+}
 
 // questions
 
-let questions = [
+var questions = [
     {
         question: "What does HTML stand for?",
         choiceA: "Heavy Translated Multiple Language",
@@ -41,14 +58,7 @@ const questionTime = 15; // 15s
 let TIMER;
 let score = 0;
 
-function renderQuestion(){
-    let q = questions[runningQuestion];
-    
-    question.innerHTML = "<p>"+ q.question +"</p>";
-    choiceA.innerHTML = q.choiceA;
-    choiceB.innerHTML = q.choiceB;
-    choiceC.innerHTML = q.choiceC;
-}
+
 start.addEventListener("click",startQuiz);
 
 function startQuiz(){
@@ -61,41 +71,5 @@ function startQuiz(){
 
 
 
-function renderCounter(){
-    if(count <=questionTime){
-        counter.innerHTML=count;
-        count * questionTime + "px";
-        count++
-    }
-    else{
-        count=0;
-        answerIsWrong();
-        if(runningQuestion < lastQuestion) {
-            runningQuestion++;
-            renderQuestion();}
-        else{
-            clearInterval(TIMER);
-            scoreRender();
-        }
-        }
-    }
 
-    //check answer
-    function checkAnswer (answer) {
-        if(answer==questions[runningQuestion].correct){score++;
-        answerIsCorrect();
-    }
-    else{answerIsWrong();
-    }
-    count= 0;
-    if(runningQuestion < lastQuestion){
-        runningQuestion++;
-        renderQuestion();
-    }
-    else{
-        clearInterval(TIMER);
-        scoreRender();
-    }
-    }
-    
 
