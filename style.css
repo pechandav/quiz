@@ -1,3 +1,8 @@
+body {
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 #start {
     color: purple;
     font-size: xx-large;

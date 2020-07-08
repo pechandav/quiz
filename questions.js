@@ -12,25 +12,72 @@ const scoreDiv= document.getElementById("scoreContainer");
 let questions = [
     {
         question: "What does HTML stand for?",
-        choiceA: "Wrong",
-        choiceB: "Correct",
-        choiceC: "Wrong",
+        choiceA: "Heavy Translated Multiple Language",
+        choiceB: "Hypertext Markup Language",
+        choiceC: "How To Make Language",
         correct: "B"
 
     }, {
         question: "What does JS stand for?",
-        choiceA: "Correct",
-        choiceB: "Wrong",
-        choiceC: "Wrong",
+        choiceA: "Javascript",
+        choiceB: "J-script",
+        choiceC: "Just Styles",
         correct: "A"
     }, {
         question: "What does CSS stand for?",
-        choiceA: "Wrong",
-        choiceB: "Correct",
-        choiceC: "Wrong",
-        correct: "A"
+        choiceA: "Corrupt Sheet System",
+        choiceB: "Cascading Style Sheets",
+        choiceC: "Cascading Sheets System",
+        correct: "B"
     }
 
 ];
 
+
+const lastQuestion = questions.length - 1;
+let runningQuestion = 0;
+let count = 0;
+const questionTime = 15; // 15s
+let TIMER;
+let score = 0;
+
+function renderQuestion(){
+    let q = questions[runningQuestion];
+    
+    question.innerHTML = "<p>"+ q.question +"</p>";
+    choiceA.innerHTML = q.choiceA;
+    choiceB.innerHTML = q.choiceB;
+    choiceC.innerHTML = q.choiceC;
+}
+start.addEventListener("click",startQuiz);
+
+function startQuiz(){
+    start.style.display="none";
+    renderQuestion();
+    quiz.style.display="block";
+    renderCounter();
+    TIMER= setInterval(renderCounter,1000)
+}
+
+
+
+function renderCounter(){
+    if(count <=questionTime){
+        counter.innerHTML=count;
+        count * questionTime + "px";
+        count++
+    }
+    else{
+        count=0;
+        answerIsWrong();
+        if(runningQuestion < lastQuestion) {
+            runningQuestion++;
+            renderQuestion();}
+        else{
+            clearInterval(TIMER);
+            scoreRender();
+        }
+        }
+    }
+    
 
